@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="data/config.js"></script>
+  <script src="lib/converter.js"></script>
+  <script src="lib/htmlinteraction.js"></script>
+  <link rel="stylesheet" href="lib/style.css">
+  <title></title>
+</head>
+<body>
+  <main>
+    <noscript>
+      <div class="popup">
+        <div class="in-popup">
+        This website doesn't work properly without JavaScript enabled.
+        Please activate JavaScript and reload page.
+        </div>
+      </div>
+    </noscript>
+    <div id="input">
+      <div class="systemInfo">
+        Current <strong>input system</strong>:
+        <select id="srcSelector"
+                title="choose source system"
+                onchange="changeSystem(this)">
+        </select>
+        <div id="srcCheckboxes"></div>
+      </div>
+      <div id="charCollections"></div>
+      <input id="input_field"
+             type="text"
+             onchange="parse_input()"
+             onmousedown="parse_input()"
+             oninput="parse_input()"
+             onkeyup="parse_input()"
+             onkeypress="parse_input()">
+    </div>
+    <div id="output">
+      <div class="systemInfo">
+        Current <strong>output system</strong>:
+        <select id="dstSelector"
+                title="choose destination system"
+                onchange="changeSystem(this)">
+        </select>
+        <div id="dstCheckboxes"></div>
+      </div>
+      <p class="systemInfo">Possible <strong>translation(s)</strong>:<br>
+      <span id="output_field">N/A</span></p>
+    </div>
+  </main>
+  <footer>
+    <p>
+    This converter is known to work with
+    <a href="https://www.mozilla.org/firefox/" title="link to Firefox website">Mozilla Firefox 66.0.3</a> and
+    <a href="https://www.chromium.org/Home" title="link to chromium website">Chromium 73.0.3683.103</a>.
+    </p>
+    <p>
+    © 2019 <span id="copyright_year_field"></span> Sönke Fischer <span id="copyright_additional_authors_field"></span>.<br>
+    Content is available under <a id="license_link" href="data/LICENSE.txt" title="license file">2-Clause BSD License</a>. 
+    </p>
+  </footer>
+</body>
+</html>

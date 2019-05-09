@@ -1,0 +1,155 @@
+/**
+ * Copyright (c) 2019, Sönke Fischer
+ *
+ * This file is subject to the terms and conditions defined in
+ * file 'LICENSE.txt', which is part of this source code package.
+ *
+ * style that defines appearance of a specific html file
+ *
+ */
+
+@import url('../data/fonts/fonts.css');
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  background: #ececec;
+  font-family: "Times New Roman", Georgia, serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+button, input, select {
+  font-family : inherit;
+  font-size   : 100%;
+}
+
+select, button {
+  text-align: center;
+  vertical-align: middle;
+  text-align-last:center;
+}
+
+button {
+  min-width: 44px;
+  min-height: 44px;
+}
+
+input[type=checkbox][disabled]{
+  filter: invert(10%);
+}
+
+div#input, div#output {
+  background: #f8f9fa;
+  box-shadow: 2px 8px 6px -6px #cfd0d1;
+  border-radius: 5px;
+}
+
+#charCollections {
+  margin-top: 1rem;
+  padding: 0;
+  box-shadow: none;
+  text-align: center;
+  vertical-align: middle;
+  display: initial;
+}
+
+.char_collection {
+  width: 100%;
+  display: none;
+}
+
+#input_field, .char_collection button, #output_field {
+  font-size: 150%;
+}
+
+#input_field {
+  width: 100%;
+}
+
+.char_collection button {
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0;
+  word-spacing: 0;
+}
+
+#input, #output {
+  padding: 2%;
+}
+
+#input input {
+  margin-top: 1rem;
+}
+
+#output {
+  margin-top: 2rem;
+}
+
+#srcSelector, #srcCheckboxes, #dstCheckboxes {
+  display: inline;
+}
+
+.translationPart {
+  background: #fff;
+}
+
+.translationLine .translationPart:nth-child(even) {
+  background: #cfd0d1;
+}
+
+.warn {
+  text-align: center;
+  background: #fff8c4;
+  border: 1px solid #f2c779;
+  color: #555;
+  border-radius: 10px;
+  padding: 10px 10px 10px 36px;
+  margin: 10px;
+  font-size: 50%;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  font-size: 80%;
+  margin: 1rem 0;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.popup{
+  position:fixed;
+  z-index: 10;
+  left:50%;
+  top: 20%;
+  min-height: 30%;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.popup .in-popup {
+  position:relative; 
+  left:-50%;
+  background: #fff8c4;
+  border: 1px solid #f2c779;
+  color: #555;
+  border-radius: 10px;
+  font-size: 150%;
+  height: 100%;
+  padding: 5rem;
+}

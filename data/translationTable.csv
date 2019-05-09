@@ -1,0 +1,9 @@
+#
+# conversion table sample file
+#
+# first name part,second name part,font,variations,all characters
+#
+A,B,,"with c after b,with irrelevant variation",a,b,c,ab,bc,bc,b
+A,B,,"without c after b,with irrelevant variation",a,b,c,ab,b,b,b
+C,D,,,d,e,f,g,h,ij,k
+E,F,,"without irrelevant variation,with c after b",l,m,n,o,p,qrs,p
