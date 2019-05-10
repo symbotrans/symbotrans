@@ -14,6 +14,7 @@ const variationSwitch = [ "with", "without"];
 
 const title = "symbotrans";
 const copyrightAdditionalAuthors = "";
+const additionalFooter = "";
 
 const licenseName = "";
 
