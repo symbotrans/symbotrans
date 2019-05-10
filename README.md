@@ -53,13 +53,13 @@ special font for displaying the symbols.
 It is important that all systems have the same amount of symbols to
 translate.
 
-When translation tables get large, you might want to provide individual
-**layout files** for a base system for the keyboard or picker the user
-can use to write the "word" to translate. If no layout file is present,
-all symbols (without duplicates) defined in the translation table
-will be used. A layout file is a UTF-8 coded CSV-file that contains
-all symbols in the same order in which they should be presented as a
-keyboard. (Note that lines beginning with `#` are considered to be
+When the translation table gets large, you might want to provide an
+individual **layout file** for a base system for the keyboard or picker
+the user can use to write the "word" to translate. If no layout file is
+present, all symbols (without duplicates) defined in the translation
+table will be used. A layout file is a UTF-8 coded CSV-file that
+contains all symbols in the same order in which they should be presented
+as a keyboard. (Note that lines beginning with `#` are considered to be
 comment lines and ignored on processing.) A layout file has to be named
 after the base system it should be used for.
 
