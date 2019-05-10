@@ -78,3 +78,7 @@ If you need special **fonts**, you'll have to define them in
 Note, that you name your font as you named it in the translation table
 file.
 
+You can find some data sets that are known to
+work with symbotrans in the [symbotrans_data
+repository](https://github.com/abelbabel/symbotrans_data).
+
