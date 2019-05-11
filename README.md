@@ -82,3 +82,59 @@ You can find some data sets that are known to
 work with symbotrans in the [symbotrans_data
 repository](https://github.com/abelbabel/symbotrans_data).
 
+
+Structure and operation of the application
+==========================================
+
+JavaScript-files and CSS-files are located in `lib/`. Data that are
+related to a specific instance of symbotrans are located in `data/`.
+On the top-level of the project there is `index.html` which provides
+the interface to the application.
+
+    data/
+      config.js
+    index.html
+    lib/
+      converter.js
+      htmlinteraction.js
+      style.css
+
+The main work is done by **JavaScript**-scripts. **`converter.js`**
+holds data structures and functions that provide the core functionality,
+forming all possible parts of an input and translate all of these
+parts if possible. For example, from an input of `abc` all possible
+divisions in parts `a b c`, `a bc`, `ab c` and `abc` are computed and
+the application tries to translate each of these possibilities and each
+of it parts to create possible solutions. After translation possible
+solutions can be filtered. The core functions are called `getParts()`
+and `translateParts()`.
+
+In order to perform translations the application gets needed information
+from text files (as mentioned above). It registers all base system
+names, all variation names, for each system (name built with base system
+name and a code that indicates the use of variations) a set of symbols
+for the translation process will be created and a set of symbols to be
+displayed as a "picker"/"keybord". These operations are done by several
+"init" functions (e.g. `init_tab()`).
+
+For input and output and presentation there is a HTML-file
+called `index.html` which embeds all needed JavaScript-files and
+CSS-files. `index.html` only contains a very basic set of elements.
+**`htmlinteraction.js`** populates these elements, adds additional
+elements if needed and gets and sets the state of the HTML-interface:
+it gathers information about the selected source system, the input
+"word" and the selected output system, passes this information to
+converter-functions and presents the computed values at the HTML-page.
+
+Any project that wants to use the converter, but wants to provide
+another interface will likely must use **`converter.js`** but
+can dismiss or heavily change the HTML-page, CSS-styles and
+`htmlinteraction.js`.
+
+Some variables are "out-sourced" into the `data/` directory in the
+**`config.js`** file. This way, each "installation" of symbotrans with a
+different set of translation table and layout files can provide its own
+configuration file. Variables are named, so that they explain their use
+or they have a comment to explain their use.
+
+
