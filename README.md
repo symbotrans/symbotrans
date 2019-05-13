@@ -14,11 +14,53 @@ resulting symbol can have on or more "origin" symbols.
 This application was developed having translations between multiple
 phonetic transcription systems used in the danish language in mind.
 
+Usage
+=====
+
+The user interface/web page is divided into **two sections**. The upper
+section contains all information relevant for **input**. The lower
+section contains all information relevant for **output**. More detailed,
+in the upper section there is a drop-down menu to select the **source
+base system** from which symbols should be translated. If there are
+**variations** for the base system, check-boxes allow selection of
+them. Below there is a **keyboard** to choose symbols from all symbols
+that the selected system provides. Those symbols are clickable and
+can be used to create a "word" that should be translated. Under the
+keyboard there is an **input field**. If you click on symbols from
+the keyboard, they appear in the input field. After each modification
+of the input field, the application tries to translate the input into
+the selected output system. You can select the **output system** in
+the lower section like you can select the input system in the upper
+section. Checkboxes allow selecting of variations if available. Below
+all possible translations appear. It's possible to that translated
+symbols contain multiple characters. All characters that form a symbol
+are colorized. If the application is unable to translate the input, it
+presents a message.
+
+Additional to controlling the application by the user interface, you can
+control it with **execution arguments** provided via URL. The arguments
+are
+
+Argument   | meaning
+---------- | ------
+srcSys     | the number of the source system, ordered as defined in translation table file, "0" is the first system
+dstSys     | the number of the destination system, ordered as defined in translation table file, "0" is the first system
+input      | the input to translate
+outputOnly | if "1" only show the lower output section
+debug      | if "1" application runs in debug mode and shows additional messages in console log
+expert     | if "1" application runs in expert mode and shows additional control elements to control the application, e.g selection of filters of the translation result
+
+This way you can call the application for example like
+`.../index.html?srcSys=0&dstSys=1&outputOnly=1&input=aBc` to translate
+`aBc` from the first system into the second system and only show the
+translation result.
+
 Get operational
 ===============
 
-To use symbotrans you'll have to provide a proper **`data/`** directory
-(the directory provided is just an example).
+To run symbotrans and turn it into a useful piece of software you - as
+an operator - will have to provide a proper **`data/`** directory (the
+directory provided is just an example).
 
 More precisely, you might need to adapt **`config.js`**.
 
@@ -115,16 +157,17 @@ names, all variation names, for each system (name built with base system
 name and a code that indicates the use of variations) a set of symbols
 for the translation process will be created and a set of symbols to be
 displayed as a "picker"/"keybord". These operations are done by several
-"init" functions (e.g. `init_tab()`).
+"init" functions (e.g. `init_tab()`, `init_picker()`).
 
-For input and output and presentation there is a HTML-file
-called `index.html` which embeds all needed JavaScript-files and
-CSS-files. `index.html` only contains a very basic set of elements.
-**`htmlinteraction.js`** populates these elements, adds additional
-elements if needed and gets and sets the state of the HTML-interface:
-it gathers information about the selected source system, the input
-"word" and the selected output system, passes this information to
-converter-functions and presents the computed values at the HTML-page.
+For input and output and presentation there is a HTML-file called
+`index.html` which embeds all needed JavaScript-files and CSS-files.
+`index.html` only contains a very basic set of static elements.
+**`htmlinteraction.js`** populates these elements dynamically, adds
+additional elements if needed and gets and sets the state of the
+HTML-interface: it gathers information about the selected source
+system, the input "word" and the selected output system, passes this
+information to converter-functions and presents the computed values at
+the HTML-page.
 
 Any project that wants to use the converter, but wants to provide
 another interface will likely must use **`converter.js`** but
@@ -136,5 +179,4 @@ Some variables are "out-sourced" into the `data/` directory in the
 different set of translation table and layout files can provide its own
 configuration file. Variables are named, so that they explain their use
 or they have a comment to explain their use.
-
 
