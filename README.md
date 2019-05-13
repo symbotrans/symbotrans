@@ -180,3 +180,17 @@ different set of translation table and layout files can provide its own
 configuration file. Variables are named, so that they explain their use
 or they have a comment to explain their use.
 
+Known issues, feature requests
+==============================
+
+ - inefficient algorithm (?) (max. 18 symbols can be translated),
+   look at `converter.js`(`getParts()`,`translateParts()`)
+ - internationalization, interface dynamically in multiple interfaces
+ - API (REST, Spring, ... ?), server-side computation needed (switch
+   to node.js, python, php, perl, ... ?)
+ - Add-Ons for browsers that recognise "words" and translates them
+   on-the-fly/in-place using symbotrans (think of dictionaries
+   with phonetics)
+ - "symbols" could be files too (for example images or sounds),
+   the need to be embedded in a convenient way
+
