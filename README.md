@@ -122,7 +122,7 @@ file.
 
 You can find some data sets that are known to
 work with symbotrans in the [symbotrans_data
-repository](https://github.com/abelbabel/symbotrans_data).
+repository](https://github.com/symbotrans/symbotrans_data).
 
 
 Structure and operation of the application
